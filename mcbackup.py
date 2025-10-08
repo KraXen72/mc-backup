@@ -1,10 +1,12 @@
 import os
 from codecs import open
-from shutil import copytree, make_archive, rmtree
 from datetime import datetime
+from shutil import copytree, make_archive, rmtree
+
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit.shortcuts import prompt
-from prompt_toolkit.validation import Validator, ValidationError
+from prompt_toolkit.validation import ValidationError, Validator
+
 
 def main(mc_path, dest):
     print("welcome to mc backup.")
@@ -42,14 +44,14 @@ def main(mc_path, dest):
     #zip the folder in the backup directory
     print("{} zipping '{}.zip'...".format(bull, new))
     zip = "{}\\{}\\{}".format(dest,folder_name,new)
-    make_archive(zip, 'zip', wrldpath)
+    make_archive(zip, "zip", wrldpath)
 
     #delete the folder in the backup directory after zip is successful
     print("{} cleaning up...".format(bull))
     rmtree(zip)
     print("done. backup successful.")
 
-    os.system('pause')
+    os.system("pause")
 
 def generateconfig():
     print("config file 'mcbackup_config.txt' not found.")
